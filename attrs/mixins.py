@@ -33,11 +33,20 @@ class GenericAttrMixin(models.Model):
         attr.value = value
         attr.save()
 
-        del self._attributes
-
 
 class SimpleAttrMixin(models.Model):
     '''
+    INCOMPLETE.
+
+
+    class Widget(models.Model):
+
+    class WidgetAttr(SimpleAttrMixin):
+        widget = models.ForeignKey(Widget)
+        # name
+        # value
+
+
     Adds `name`, `value` pair to an object and gives the ability to 
     reference those values through a dict style lookup, or via
     dot notation in templates.
@@ -49,17 +58,20 @@ class SimpleAttrMixin(models.Model):
 
     # ...
 
-    widget_field = WidgetField(
+    widget_attr = WidgetAttr(
         widget = widget,
         name = 'foo',
         value = 'bar')
 
-    widget_field.save()
-    print widget_field.foo
+    widget_attr.save()
+    print widget_attr.foo
     >>> 'bar'
-    widget_field.foo = 'boo'
-    widget_field.save()
-    print widget_field.foo
+    widget_attr.foo = 'boo'
+    widget_attr.save()
+    print widget_attr.foo
+    >>> 'boo'
+
+    widget.foo
     >>> 'boo'
 
     '''
