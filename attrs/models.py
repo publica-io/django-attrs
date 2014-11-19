@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
-from entropy.base import GenericMixin
+from entropy.mixins import GenericMixin
 
 
 class Attribute(GenericMixin):
