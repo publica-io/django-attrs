@@ -11,6 +11,8 @@ class Attribute(GenericMixin):
 
     class Meta:
         ordering = ('name',)
+        verbose_name = 'Custom Name/Value Attribute'
+        verbose_name_plural = 'Custom Name/Value Attributes'
 
     def __unicode__(self):
         return u'%s=%s' % (self.name, self.value,)
